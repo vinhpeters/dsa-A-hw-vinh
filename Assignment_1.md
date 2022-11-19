@@ -7,7 +7,7 @@
 > Big O is a member of a family of notations invented by Paul Bachmann, Edmund Landau, and others, collectively called Bachmann–Landau notation or asymptotic notation. The letter O was chosen by Bachmann to stand for Ordnung, meaning the order of approximation.
 > https://en.wikipedia.org/wiki/Big_O_notation
 
-Big O notation is a way to describe the running time of an algorithm based on the magnitude of the number of operations , _n_. The order of magnitude _O_ is based on the worst case scenario for the size of _n_ for the algorithm. _O_ should reflect in the increase in _n_ as the input data increases in scale.
+Big O notation is a way to describe the running time of an algorithm based on the magnitude of the number of operations, _n_. The order of magnitude is based on the worst case scenario for the size of _n_ for the algorithm. The magnitude describes the relationship between _n_ and the input data as the input increases in scale.
 
 ## Problem 2
 
@@ -27,7 +27,7 @@ function isEvenOrOdd(n) {
 }
 ```
 
-### O(log(n))
+### O(log n)
 
 Logarithmic Time\
 Rank: 2\
@@ -149,7 +149,7 @@ Consolidated ==> O(n<sup>3</sup>)
 
 ---
 
-As the input data scales the higher order operations will become the dominant factors for the running. For O(1+n+n<sup>2</sup>) with _n_ = 10, we would have a total number of operations on the order of 10 + 10<sup>2</sup>= 110. The contribution from the linear portion is 10/110= 0.091 or 9.091%. If _n_ increases to 100, the number of operations become 100 + 100<sup>2</sup> = 10,100. The percentage from the linear portion is 100/(100+100<sup>2</sup> ==> 0.99%. As the input data increases , the contributions from the lower ordered operations become negligible.
+As the input data scales the higher order operations will become the dominant factors for the running. For O(1+n+n<sup>2</sup>) with _n_ = 10, we would have a total number of operations on the order of 10 + 10<sup>2</sup>= 110. The contribution from the linear portion is 10/110= 0.091 or 9.091%. If _n_ increases to 100, the number of operations become 100 + 100<sup>2</sup> = 10,100. The percentage from the linear portion is 100/(100+100<sup>2</sup> ==> 0.99%. As the input data increases, the contributions from the lower ordered operations become negligible.
 
 ## Problem 8
 
@@ -284,16 +284,16 @@ The algorithm will return a sorted array of the same length as the input array.
 
 ## #9
 
-Time complexity: O(n<sup>2</sup>)
+Time complexity: O(n<sup>2</sup>)  
 The algorithm iterates through each element in the first array and performs a linear search in the second array. The max number of operations will be for two arrays of size n, which will produce n<sup>2</sup> number of operations.
 
-Space complexity: O(n)
+Space complexity: O(n)  
 The algorithm will return an array with a max length equal to the input array length.
+
 ## #10
 
-Time complexity: O(n)
+Time complexity: O(n)  
 The algorithm uses two linear methods in sequence. The worst case scenario is that .filter does not reduce the size of the array and .reduce still acts on an array of size n.
 
-Space complexity: O(n)
+Space complexity: O(n)  
 The algorithm will return an array with a max length equal to the input array length.
-
