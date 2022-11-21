@@ -1,0 +1,129 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "## Pseudo code\r\n```\r\n\r\ni=0\r\nfor ltr in str2 {\r\n    if str1[i] == ltr {\r\n        i++\r\n        if i == len(str1) {\r\n            return true\r\n        }\r\n    }\r\n}\r\nreturn false\r\n\r\n\r\n```"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "/*\r\nWrite a function called subsequence which takes in two strings and checks whether\r\nthe characters in the first string form a subsequence of the characters in the second string.\r\nIn other words, the function should check whether the characters in the first string\r\nappear somewhere in the second string, without their order changing.\r\nWrite your solution with time complexity O(n) and space O(1)\r\n*/\r\n\r\nconst subsequence = (str1, str2) => {\r\n    let i = 0\r\n    for (const ltr in str2) {\r\n\r\n        if (str1[i] === ltr) {\r\n            i++;\r\n\r\n            if (i === str1.length) {\r\n                return true\r\n            }\r\n        }\r\n    }\r\nreturn false\r\n}\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(subsequence('hello', 'hello world'))\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "false",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(subsequence('sing', 'sting'))\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "false",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(subsequence('abc', 'abracadabra'))\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "false",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "console.log(subsequence('abc', 'acb'))"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "false",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "/* \r\nWrite a function called longestSubstringInString, which accepts a string and\r\nreturns the length of the longest substring with all distinct characters from the START of the\r\nstring.\r\nPlease write in time complexity of O(n)\r\n*/\r\nconst longestSubstringInString = (str) => {\r\n\r\n}\r\n// Test Cases:\r\n// longestSubstringInString('') 0\r\n// longestSubstringInString('rithmschool') 7 because of ‘rithmsc’\r\n// longestSubstringInString('thisisawesome') 4 because of ‘this’\r\n// longestSubstringInString('thecatinthehat') 5 because of ‘theca’\r\n// longestSubstringInString('bbbbbb') 1 because of ‘b’\r\n// longestSubstringInString('longestsubstring') 7 because of ‘longest’"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
