@@ -3,6 +3,20 @@
 
 using std::cout;
 using std::map;
+/* Problem 1
+
+Pseudocode
+
+Count frequencies of each item and store the counts in a dictionary. Return key with max frequency.
+
+def solution(nums)
+    for nums in nums
+        if nums in freq
+            freq[nums]++1
+        else
+            freq[nums] = 1
+    return max(freq)
+ */
 
 int majority(int nums[], int n)
 {
@@ -23,6 +37,33 @@ int majority(int nums[], int n)
     }
     return -1;
 }
+
+/* Problem 2
+
+Pseudocode
+Use three pointers, start, middle and end. Compare value at middle index to target. If target < middle, change end to middle - 1. If target > middle, change start to middle + 1.
+
+def binaryIterativeSearch(nums, target)
+    start = 0
+    end = len(nums)-1
+
+    while start < end
+        middle = floor((end + start)/2)
+        if nums[middle] == target
+            return middle
+
+        if nums[middle] > target
+        # Search in lower half, between start and middle
+        end = middle -1
+
+        elif nums[middle] < target
+        # Search in upper half, between middle and end
+        start = middle + 1
+
+    # Else return -1 if target not found
+    return -1
+        
+ */
 
 int binarySearch(int nums[], int n, int target)
 {
