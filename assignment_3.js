@@ -24,8 +24,10 @@ const solution = (nums) => {
     return Object.keys(freq).find(key => freq[key] === Math.max(...Object.values(freq)))
 }
 console.log("Problem 1");
+
 nums = [3, 2, 3];
 console.log(solution(nums));
+
 nums = [2, 2, 1, 1, 1, 2, 2];
 console.log(solution(nums));
 
@@ -38,7 +40,7 @@ const solutionMap = (nums) => {
     // I thought map might be easier to get the key, lol 
     return [...freq.keys()][[...freq.values()].indexOf(Math.max(...freq.values()))]
 }
-
+console.log("Problem 1 map");
 nums = [3, 2, 3];
 console.log(solutionMap(nums));
 nums = [2, 2, 1, 1, 1, 2, 2];
@@ -124,20 +126,23 @@ const triangleNumber = (nums) => {
     let triplets = 0;
     nums.sort();
     for (let i = 0; i < nums.length - 2; i++) {
-        for (let j = i + 1; j < nums.length - 1; j++) {
-            let end = nums.length - 1;
-            let start = j + 1;
+        if (nums[i] != 0) {
 
-            while (start <= end) {
-                let mid = ~~((start + end) / 2);
-                if (nums[mid] >= nums[i] + nums[j]) {
-                    end = mid - 1;
+            for (let j = i + 1; j < nums.length - 1; j++) {
+                let end = nums.length - 1;
+                let start = i + 2;
+
+                while (start <= end) {
+                    let mid = ~~((start + end) / 2);
+                    if (nums[mid] >= nums[i] + nums[j]) {
+                        end = mid - 1;
+                    }
+                    else {
+                        start = mid + 1;
+                    }
                 }
-                else {
-                    start = mid + 1;
-                }
+                triplets += end - j;
             }
-            triplets += end - j;
         }
     }
     return triplets;
@@ -161,15 +166,18 @@ const triangleNumberCount = (nums) => {
     nums.sort();
     for (let i = 0; i < nums.length - 2; i++) {
 
-        for (let j = i + 1; j < nums.length - 1; j++) {
+        if (nums[i] != 0) {
 
-            let k = j + 1;
-            while (k < nums.length && nums[k] < nums[i] + nums[j]) {
+            for (let j = i + 1; j < nums.length - 1; j++) {
 
-                k += 1;
+                let k = i + 2;
+                while (k < nums.length && nums[k] < nums[i] + nums[j]) {
+
+                    k += 1;
+                }
+                triplets += k - j - 1;
+
             }
-            triplets += k - j - 1;
-
         }
     }
     return triplets;
@@ -215,5 +223,5 @@ const findDuplicates = (nums) => {
 }
 
 console.log('Find duplicates')
-nums = [4,3,2,7,8,2,3,1]
+nums = [4, 3, 2, 7, 8, 2, 3, 1]
 console.log(findDuplicates(nums))

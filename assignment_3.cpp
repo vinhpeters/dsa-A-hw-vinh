@@ -1,8 +1,11 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 
 using std::cout;
 using std::map;
+using std::sort;
+
 /* Problem 1
 
 Pseudocode
@@ -62,7 +65,6 @@ def binaryIterativeSearch(nums, target)
 
     # Else return -1 if target not found
     return -1
-        
  */
 
 int binarySearch(int nums[], int n, int target)
@@ -93,6 +95,60 @@ int binarySearch(int nums[], int n, int target)
     return -1;
 }
 
+int triangleNumber(int nums[], int n)
+{
+    int triplets = 0;
+
+    for (int i = 0; i < n - 2; i++)
+    {
+        for (int j = i + 1; j < n - 1; j++)
+        {
+            int end = n - 1;
+            int start = i + 2;
+            int mid;
+
+            while (start <= end)
+            {
+                mid = (start + end) / 2;
+
+                if (nums[mid] >= nums[i] + nums[j])
+                {
+                    end = mid - 1;
+                }
+
+                else
+                {
+                    start = mid + 1;
+                }
+            }
+            triplets += end - j;
+        }
+    }
+    return triplets;
+}
+
+int *findDuplicates(int nums[], int n)
+{
+
+    map<int, int> freqs;
+    int *output = new int[n];
+    int k = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        freqs[nums[i]]++;
+    }
+
+    for (auto freq : freqs)
+    {
+        if (freq.second > 1)
+        {
+            output[k] = freq.first;
+            k++;
+        }
+    }
+    return output;
+}
 int main()
 {
     // Problem 1 Driver
@@ -119,4 +175,30 @@ int main()
 
     target = 2;
     cout << binarySearch(arr, n, target) << "\n";
+
+    // Extra problems
+    cout << "Triangle numbers"
+         << "\n";
+    int trinums[] = {2, 2, 3, 4};
+    n = sizeof(trinums) / sizeof(trinums[0]);
+
+    cout << triangleNumber(trinums, n) << "\n";
+
+    int trinums2[] = {4, 2, 3, 4};
+    n = sizeof(trinums2) / sizeof(trinums[0]);
+
+    cout << triangleNumber(trinums2, n) << "\n";
+
+    int nums3[] = {4, 3, 2, 7, 8, 2, 3, 1};
+    n = sizeof(nums3) / sizeof(nums3[0]);
+    int *output = findDuplicates(nums3, n);
+
+    cout << "Find duplicates" << "\n";
+
+    n = sizeof(output) / sizeof(output[0]);
+
+    for (int k = 0; k < n; k++)
+    {
+        cout << output[k] << " ";
+    }
 }
